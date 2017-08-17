@@ -20,8 +20,6 @@ namespace ConsoleWebAppLogin
 		static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 		const int SW_HIDE = 0;
 		const int SW_SHOW = 5;
-		//Embedded
-		public static LoadEmbeddedResources EmbeddedResources = new LoadEmbeddedResources();
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -42,13 +40,16 @@ namespace ConsoleWebAppLogin
 				Application.SetCompatibleTextRenderingDefault(false);
 				try
 				{
+					OptionsData datamodel = new OptionsData(options.IconPath, options.URL, options.Username, options.Password,
+						options.UsernameFieldName, options.PasswordFieldName, options.IconPath, options.PreserveCache);
+					Application.Run(new Browser(datamodel, new EmbeddedResources()));
 					ShowWindow(handle, SW_HIDE);
-					Application.Run(new Browser(ParseInput.Parse(options)));
 				}
 				catch(Exception e)
 				{
 					ShowWindow(handle, SW_SHOW);
 					Console.WriteLine(e.Message);
+					Console.ReadKey();
 				}
 			}
 		}

@@ -130,16 +130,15 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandLineOptions.cs" />
-    <Compile Include="DataModel.cs" />
+    <Compile Include="OptionsData.cs" />
     <Compile Include="Info.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Info.Designer.cs">
       <DependentUpon>Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadEmbeddedResources.cs" />
+    <Compile Include="EmbeddedResources.cs" />
     <Compile Include="JS\FindElement.cs" />
-    <Compile Include="ParseInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Browser.resx">

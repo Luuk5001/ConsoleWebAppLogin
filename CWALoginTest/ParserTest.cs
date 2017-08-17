@@ -22,7 +22,7 @@ namespace CWALoginTest
 		[TestMethod]
 		public void TestValidInput()
 		{
-			DataModel data = ParseInput.Parse(options);
+			OptionsData data = ParseInput.Parse(options);
 			Assert.AreEqual(data.AppName, "TestApp");
 			Assert.AreEqual(data.Url, "https://google.nl");
 			Assert.AreEqual(data.Username, "TestUser");

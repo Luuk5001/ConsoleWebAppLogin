@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace ConsoleWebAppLogin
 {
-	class LoadEmbeddedResources
+	public class EmbeddedResources
 	{
 		Assembly assembly;
 		public Stream AppIcon { get; }
@@ -13,7 +13,7 @@ namespace ConsoleWebAppLogin
 		public Stream ListIcon { get; }
 		public Stream PrintIcon { get; }
 
-		public LoadEmbeddedResources()
+		public EmbeddedResources()
 		{
 			assembly = Assembly.GetExecutingAssembly();
 			try
