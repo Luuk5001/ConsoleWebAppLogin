@@ -20,21 +20,15 @@ namespace ConsoleWebAppLogin
 			assembly = Assembly.GetExecutingAssembly();
 			try
 			{
-				AppIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.icon.ico");
-				InfoIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.info.png");
-				BackIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.back.png");
-				NextIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.next.png");
-				ListIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.list.png");
-				PrintIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.print.png");
+				AppIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.icon.ico");
+				InfoIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.info.png");
+				BackIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.back.png");
+				NextIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.next.png");
+				ListIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.list.png");
+				PrintIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.print.png");
 			}
 			catch
 			{
-				AppIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.icon.ico");
-				InfoIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.info.png");
-				BackIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.back.png");
-				NextIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.next.png");
-				ListIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.list.png");
-				PrintIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.print.png");
 			}
 		}
 	}

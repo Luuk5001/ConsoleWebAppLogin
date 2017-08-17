@@ -54,7 +54,7 @@
     <StartupObject>ConsoleWebAppLogin.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -175,21 +175,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="icon.ico" />
+    <EmbeddedResource Include="Images\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="back.png" />
-    <EmbeddedResource Include="info.png" />
-    <EmbeddedResource Include="next.png" />
+    <EmbeddedResource Include="Images\back.png" />
+    <EmbeddedResource Include="Images\info.png" />
+    <EmbeddedResource Include="Images\next.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="infoIcon.ico" />
+    <EmbeddedResource Include="Images\list.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="list.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="print.png" />
+    <EmbeddedResource Include="Images\print.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
