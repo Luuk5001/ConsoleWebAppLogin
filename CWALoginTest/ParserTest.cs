@@ -28,7 +28,7 @@ namespace CWALoginTest
 			Assert.AreEqual(data.Username, "TestUser");
 			Assert.AreNotEqual(data.Password, "Password");
 			Assert.AreEqual(options.Password, "");
-			Assert.AreEqual(ConvertSecureString.ToUnsecureString(data.Password), "Password");
+			Assert.AreEqual(data.Password, "Password");
 			Assert.AreEqual(data.UserFieldName, "TestUField");
 			Assert.AreEqual(data.PasswordFieldName, "TestPField");
 			Assert.AreEqual(data.Icon.GetType(), typeof(Icon));

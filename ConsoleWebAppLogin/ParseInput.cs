@@ -13,7 +13,7 @@ namespace ConsoleWebAppLogin
 		public static DataModel Parse(CommandLineOptions options)
 		{
 			ParseInput.options = options;
-			DataModel data = new DataModel(options.Name, GetURL(), options.Username, SecurePassword(), options.UsernameFieldName, options.PasswordFieldName);
+			DataModel data = new DataModel(options.Name, GetURL(), options.Username, options.Password, options.UsernameFieldName, options.PasswordFieldName);
 			if (options.IconPath != null)
 			{
 				data.Icon = GetIcon();
@@ -27,13 +27,6 @@ namespace ConsoleWebAppLogin
 				data.ClearCache = false;
 			}
 			return data;
-		}
-
-		private static SecureString SecurePassword()
-		{
-			SecureString securePassword = ConvertSecureString.ToSecureString(options.Password);
-			options.Password = "";
-			return securePassword;
 		}
 
 		private static Uri GetURL()

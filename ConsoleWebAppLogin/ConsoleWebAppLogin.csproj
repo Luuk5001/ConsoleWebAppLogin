@@ -130,7 +130,6 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandLineOptions.cs" />
-    <Compile Include="ConvertSecureString.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="Info.cs">
       <SubType>Form</SubType>

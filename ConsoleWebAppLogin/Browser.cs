@@ -115,13 +115,12 @@ namespace ConsoleWebAppLogin
 		private void FillInForm()
 		{
 			messageTextBox.Invoke((MethodInvoker)(() => messageTextBox.Text += "Velden worden ingevuld.\r\n"));
-			//Javascript dat op de pagina wordt uitgevoerd
 			string javascript = String.Format(@"
 					var form = document.getElementById('{3}').form;
 					document.getElementById('{2}').value='{0}';
 					document.getElementById('{3}').value='{1}';
 					form.submit();",
-			Data.Username, ConvertSecureString.ToUnsecureString(Data.Password), 
+			Data.Username, Data.Password, 
 			Data.UserFieldName, Data.PasswordFieldName);
 			browser.ExecuteScriptAsync(javascript);
 			javascript = "";
