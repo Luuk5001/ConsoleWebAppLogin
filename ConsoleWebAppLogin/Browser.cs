@@ -24,11 +24,6 @@ namespace ConsoleWebAppLogin
 			//Set global variables
 			this.resources = resources;
 			this.data = data;
-			//Create events
-			Application.ApplicationExit += OnApplicationExit;
-			browser.FrameLoadEnd += OnFrameLoadEnd;
-			browser.FrameLoadStart += OnFrameLoadStart;
-			browser.LoadError += OnLoadError;
 			//Form settings
 			Text = data.AppName;
 			WindowState = FormWindowState.Maximized;
@@ -43,6 +38,11 @@ namespace ConsoleWebAppLogin
 			showStatusIcon.Controls.Add(browser);
 			//Register bound JS objects
 			RegisterJsObjects();
+			//Create events
+			Application.ApplicationExit += OnApplicationExit;
+			browser.FrameLoadEnd += OnFrameLoadEnd;
+			browser.FrameLoadStart += OnFrameLoadStart;
+			browser.LoadError += OnLoadError;
 		}
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace ConsoleWebAppLogin
 			infoButton.Image = Image.FromStream(resources.InfoIcon);
 			showMessagesButton.Image = Image.FromStream(resources.ListIcon);
 			printButton.Image = Image.FromStream(resources.PrintIcon);
-			if (data.Icon == null)
+			if (data == null)
 			{
 				Icon = new Icon(resources.AppIcon);
 			}

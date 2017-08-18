@@ -22,7 +22,7 @@ namespace CWALoginTest
 		[TestMethod]
 		public void TestValidInput()
 		{
-			OptionsData data = ParseInput.Parse(options);
+			OptionsData data = new OptionsData(options);
 			Assert.AreEqual(data.AppName, "TestApp");
 			Assert.AreEqual(data.Url, "https://google.nl");
 			Assert.AreEqual(data.Username, "TestUser");
@@ -39,7 +39,7 @@ namespace CWALoginTest
 		public void TestInvalidIconPath()
 		{
 			options.IconPath = "C:\\somefiles.ico";
-			ParseInput.Parse(options);
+			new OptionsData(options);
 		}
 
 		[TestMethod]
@@ -47,7 +47,7 @@ namespace CWALoginTest
 		public void TestInvalidIconFileType()
 		{
 			options.IconPath = "C:\\somefile.png";
-			ParseInput.Parse(options);
+			new OptionsData(options);
 		}
 
 		[TestMethod]
@@ -55,7 +55,7 @@ namespace CWALoginTest
 		public void TestInvalidUrl()
 		{
 			options.URL = "www.google.nl";
-			ParseInput.Parse(options);
+			new OptionsData(options);
 		}
 	}
 }

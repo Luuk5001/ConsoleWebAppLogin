@@ -40,10 +40,9 @@ namespace ConsoleWebAppLogin
 				Application.SetCompatibleTextRenderingDefault(false);
 				try
 				{
-					OptionsData datamodel = new OptionsData(options.IconPath, options.URL, options.Username, options.Password,
-						options.UsernameFieldName, options.PasswordFieldName, options.IconPath, options.PreserveCache);
-					Application.Run(new Browser(datamodel, new EmbeddedResources()));
 					ShowWindow(handle, SW_HIDE);
+					OptionsData datamodel = new OptionsData(options);
+					Application.Run(new Browser(datamodel, new EmbeddedResources()));
 				}
 				catch(Exception e)
 				{

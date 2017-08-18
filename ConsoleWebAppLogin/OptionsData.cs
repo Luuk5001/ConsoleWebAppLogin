@@ -31,17 +31,16 @@ namespace ConsoleWebAppLogin
 		public Icon Icon { get; set; }
 		public bool PreserveCache { get; set; }
 
-        public OptionsData(string appName, string url, string username, string password,
-            string userFieldName, string passwordFieldName, string iconPath, bool preserveCache)
+        public OptionsData(CommandLineOptions options)
         {
-            AppName = appName;
-			Url = GetURL(url);
-            Username = username;
-            this.password = ToSecureString(password);
-            UserFieldName = userFieldName;
-            PasswordFieldName = passwordFieldName;
-			Icon = GetIcon(iconPath);
-			PreserveCache = preserveCache;
+            AppName = options.Name;
+			Url = GetURL(options.URL);
+            Username = options.Username;
+            this.password = ToSecureString(options.Password);
+            UserFieldName = options.UsernameFieldName;
+            PasswordFieldName = options.PasswordFieldName;
+			Icon = GetIcon(options.IconPath);
+			PreserveCache = options.PreserveCache;
         }
 
 		/// <summary>
@@ -87,7 +86,7 @@ namespace ConsoleWebAppLogin
 		{
 			try
 			{
-				if (path == "")
+				if (path == "" || path == null)
 				{
 					return null;
 				}
