@@ -13,6 +13,7 @@ namespace ConsoleWebAppLogin
     {
         public string AppName { get; set; }
 		public Uri Url { get; set; }
+		public bool AutoLoginOff { get; set; }
 		public string Username { get; set; }
 		private SecureString password;
 		public string Password
@@ -35,13 +36,17 @@ namespace ConsoleWebAppLogin
         {
             AppName = options.Name;
 			Url = GetURL(options.URL);
-            Username = options.Username;
-            this.password = ToSecureString(options.Password);
-            UserFieldName = options.UsernameFieldName;
-            PasswordFieldName = options.PasswordFieldName;
+			AutoLoginOff = options.AutoLoginOff;
+			if(!AutoLoginOff)
+			{
+				Username = options.Username;
+				this.password = ToSecureString(options.Password);
+				UserFieldName = options.UsernameFieldName;
+				PasswordFieldName = options.PasswordFieldName;
+			}
 			Icon = GetIcon(options.IconPath);
 			PreserveCache = options.PreserveCache;
-        }
+		}
 
 		/// <summary>
 		/// Convert plain password to secure string

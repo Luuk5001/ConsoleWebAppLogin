@@ -13,19 +13,23 @@ namespace ConsoleWebAppLogin
 		HelpText = "URL van de inlogpagina.")]
 		public string URL { get; set; }
 
-		[Option('u', Required = true,
+		[Option("off", Required = false,
+		HelpText = "Auto login uitzetten")]
+		public bool AutoLoginOff { get; set; }
+
+		[Option('u', Required = false,
 		HelpText = "Gebruikersnaam")]
 		public string Username { get; set; }
 
-		[Option('p', Required = true,
+		[Option('p', Required = false,
 		HelpText = "Wachtwoord")]
 		public string Password { get; set; }
 
-		[Option('a', Required = true,
+		[Option('a', Required = false,
 		HelpText = "Gebruikersnaam text input ID HOOFDLETTERGEVOELIG")]
 		public string UsernameFieldName { get; set; }
 
-		[Option('b', Required = true,
+		[Option('b', Required = false,
 		HelpText = "Wachtwoord text input ID HOOFDLETTERGEVOELIG")]
 		public string PasswordFieldName { get; set; }
 

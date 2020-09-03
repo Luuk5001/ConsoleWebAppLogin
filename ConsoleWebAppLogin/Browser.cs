@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using CefSharp;
+using CefSharp.Example.Handlers;
 using CefSharp.WinForms;
 using ConsoleWebAppLogin.JS;
 
@@ -34,6 +35,7 @@ namespace ConsoleWebAppLogin
 			browser = new ChromiumWebBrowser(data.Url.OriginalString)
 			{
 				Dock = DockStyle.Fill,
+				DownloadHandler = new DownloadHandler()
 			};
 			showStatusIcon.Controls.Add(browser);
 			//Register bound JS objects
@@ -55,6 +57,8 @@ namespace ConsoleWebAppLogin
 			infoButton.Image = Image.FromStream(resources.InfoIcon);
 			showMessagesButton.Image = Image.FromStream(resources.ListIcon);
 			printButton.Image = Image.FromStream(resources.PrintIcon);
+			refreshButton.Image = Image.FromStream(resources.RefreshIcon);
+			loadingAnimation.Image = Image.FromStream(resources.LoadingIcon);
 			if (data == null)
 			{
 				Icon = new Icon(resources.AppIcon);
@@ -95,11 +99,16 @@ namespace ConsoleWebAppLogin
 
 		private void OnFrameLoadStart(object sender, FrameLoadStartEventArgs e)
 		{
+			Invoke((MethodInvoker)(() => loadingAnimation.Visible = true));
 			currentAdress.Text = e.Url;
 		}
 
 		private void OnFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
 		{
+			Invoke((MethodInvoker)(() => loadingAnimation.Visible = false));
+			if (data.AutoLoginOff)
+				return;
+
 			if (searchElementsCounter >= 5)
 			{
 				attemtedLogin = true;
@@ -155,7 +164,10 @@ namespace ConsoleWebAppLogin
 		private void RegisterJsObjects()
 		{
 			findElement = new FindElement(browser);
-			browser.RegisterJsObject("dedf7b4186af42c3882bcd42f4639a5a", findElement);
+			CefSharpSettings.LegacyJavascriptBindingEnabled = true;
+			CefSharpSettings.WcfEnabled = true;
+			browser.JavascriptObjectRepository.Register("dedf7b4186af42c3882bcd42f4639a5a", findElement, isAsync: false, options: BindingOptions.DefaultBinder);
+			//browser.RegisterJsObject("dedf7b4186af42c3882bcd42f4639a5a", findElement);
 		}
 
 		private void PrevPageButton_Click(object sender, EventArgs e)
@@ -189,6 +201,11 @@ namespace ConsoleWebAppLogin
 		private void PrintButton_Click(object sender, EventArgs e)
 		{
 			browser.Print();
+		}
+
+		private void refreshButton_Click(object sender, EventArgs e)
+		{
+			browser.Reload();
 		}
 	}
 }

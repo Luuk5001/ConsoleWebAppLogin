@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using CommandLine;
-using System.Security;
-using System.Drawing;
 
 namespace ConsoleWebAppLogin
 {
-    static class Program
+	static class Program
     {		
 		//Variabelen worden gebruikt voor het Hiden van het console scherm
 		[DllImport("kernel32.dll")]

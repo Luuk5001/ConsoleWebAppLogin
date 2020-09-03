@@ -12,6 +12,8 @@ namespace ConsoleWebAppLogin
 		public Stream NextIcon { get; }
 		public Stream ListIcon { get; }
 		public Stream PrintIcon { get; }
+		public Stream RefreshIcon { get; }
+		public Stream LoadingIcon { get; }
 
 		public EmbeddedResources()
 		{
@@ -24,6 +26,8 @@ namespace ConsoleWebAppLogin
 				NextIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.next.png");
 				ListIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.list.png");
 				PrintIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.print.png");
+				RefreshIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.refresh.png");
+				LoadingIcon = assembly.GetManifestResourceStream("ConsoleWebAppLogin.Images.loadingIcon.gif");
 			}
 			catch
 			{
