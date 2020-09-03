@@ -17,7 +17,7 @@ namespace CefSharp.Example.Handlers
             {
                 using (callback)
                 {
-                    callback.Continue(downloadItem.SuggestedFileName, showDialog: true);
+                    callback.Continue(Environment.GetEnvironmentVariable("USERPROFILE") + "\\Downloads\\" + downloadItem.SuggestedFileName, showDialog: true);
                 }
             }
         }
